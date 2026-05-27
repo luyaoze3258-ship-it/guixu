@@ -1,0 +1,22 @@
+export const site = {
+  name: "归序科技",
+  enName: "Guixu",
+  legalName: "北京归序信息科技有限公司",
+  domain: "guixucloud.com",
+  email: "hello@guixucloud.com",
+  product: {
+    name: "观澜",
+    enName: "Guanlan",
+    tagline: "让审批从小时级变成分钟级",
+    description:
+      "面向企业财务与法务流程的 AI 智能审核引擎。秒级解析复杂票据与多页合同，快速输出可审计的合规决策。",
+  },
+} as const;
+
+export const nav = [
+  { href: "/", label: "首页" },
+  { href: "/guanlan", label: "观澜·智能审核" },
+  { href: "/#solutions", label: "解决方案" },
+  { href: "/#cases", label: "应用场景" },
+  { href: "/#contact", label: "联系我们" },
+] as const;
