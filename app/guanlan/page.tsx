@@ -17,6 +17,40 @@ import {
   Zap,
 } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
+import { JsonLd } from "@/components/json-ld";
+
+const SITE_URL = "https://www.guixucloud.com";
+
+const guanlanSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "观澜 Guanlan",
+  alternateName: "观澜智能审核",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "AI Document Review",
+  operatingSystem: "Web, Private Cloud",
+  url: `${SITE_URL}/guanlan`,
+  description:
+    "面向企业财务与法务流程的 AI 智能审核引擎。秒级解析复杂票据与多页合同，输出可审计的合规决策。",
+  inLanguage: "zh-CN",
+  provider: { "@id": `${SITE_URL}/#organization` },
+  featureList: [
+    "智能审核引擎",
+    "零代码规则配置中心",
+    "模块化 Agent 编排",
+    "回测与监控大盘",
+    "差旅审核",
+    "合同审核",
+    "发票核验",
+  ],
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    priceCurrency: "CNY",
+    price: "0",
+    description: "支持 POC 试用，按企业规模与场景报价",
+  },
+};
 
 export const metadata: Metadata = {
   title: "观澜·Guanlan · 企业级 AI 智能审核引擎",
@@ -109,7 +143,7 @@ const scenarios = [
     title: "发票核验",
     desc: "全电发票自动查验，识别抬头、税额异常及虚假发票，实现财务入账的全面自动化。",
     bullets: [
-      "国家税务总局接口实时核验",
+      "通过合规服务商接入税务核验渠道",
       "抬头、税号、金额三因素匹配",
       "重复发票与连号识别",
     ],
@@ -119,6 +153,7 @@ const scenarios = [
 export default function GuanlanPage() {
   return (
     <>
+      <JsonLd data={guanlanSchema} />
       <ProductHero />
       <Capabilities />
       <HowItWorks />
@@ -384,8 +419,8 @@ function Security() {
   const items = [
     {
       icon: ShieldCheck,
-      title: "等保 2.0 三级",
-      desc: "完整的访问控制、审计日志与等级保护要求",
+      title: "按等保三级要求设计",
+      desc: "参照等保 2.0 三级要求构建访问控制、审计日志与权限体系",
     },
     {
       icon: ShieldCheck,
@@ -395,7 +430,7 @@ function Security() {
     {
       icon: ShieldCheck,
       title: "全链路加密",
-      desc: "传输 TLS 1.3，存储 AES-256，密钥客户托管",
+      desc: "传输 TLS 1.3，存储 AES-256",
     },
   ];
   return (

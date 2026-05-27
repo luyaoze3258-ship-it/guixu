@@ -309,51 +309,55 @@ function Hero() {
       <div className="container-page relative grid gap-8 py-12 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-28">
         <div>
           <span className="badge">
-            <Sparkles className="size-3.5" /> AI 智能体 / 培训 / 落地交付
+            <Sparkles className="size-3.5" /> 财务 · 法务 · 销售流程 AI 化 · 4 周 POC 到上线
           </span>
 
           <h1 className="mt-5 text-balance text-[38px] font-bold leading-[1.08] tracking-tight text-ink-900 md:mt-6 md:text-[58px]">
-            把企业流程变成{" "}
+            把 AI 从 PPT 推进到{" "}
             <span className="whitespace-nowrap rounded-md bg-brand-500/10 px-2 py-0.5 text-brand-600">
-              可落地 AI
+              真实业务流程
             </span>
           </h1>
 
           <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ink-500 md:mt-6 md:text-[17px]">
-            归序科技提供销售、知识库、智能审核等标准智能体，也提供 AI
-            培训、咨询陪跑和定制外包交付，帮助企业把高频业务流程一步步
-            AI 化，而不是停留在演示和概念验证。
+            销售助手、智能知识库、合同 / 发票 / 差旅审核——
+            4 周用真实样本完成 POC 回测，跑通准确率与节省工时后再灰度上线，
+            保留权限、审计和人工兜底。
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-9">
             <Link href="#contact" className="btn-primary">
-              预约 AI 落地诊断 <ArrowRight className="size-4" />
+              预约 30 分钟 AI 场景诊断 <ArrowRight className="size-4" />
             </Link>
-            <Link href="#agents" className="btn-ghost">
-              查看智能体矩阵
+            <Link href="#playbook" className="btn-ghost">
+              看 4 周落地路径
             </Link>
           </div>
 
           <ul className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-ink-500 md:mt-8">
             <li className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-brand-500" /> 标准产品可先试点
+              <CheckCircle2 className="size-4 text-brand-500" /> 4 周完成样本回测
             </li>
             <li className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-brand-500" /> 培训陪跑帮团队会用
+              <CheckCircle2 className="size-4 text-brand-500" /> 数据不出域 · 全链路审计
             </li>
             <li className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-brand-500" /> 定制开发进入真实流程
+              <CheckCircle2 className="size-4 text-brand-500" /> 保留人工复核边界
             </li>
           </ul>
 
           <div className="mt-7 grid gap-3 text-[13px] text-ink-700 sm:grid-cols-3 md:mt-8">
-            {["销售提效", "知识复用", "流程自动化"].map((item) => (
+            {[
+              { label: "销售日报", value: "自动生成" },
+              { label: "知识问答", value: "可追溯复用" },
+              { label: "审核效率", value: "提升 8 倍" },
+            ].map((item) => (
               <div
-                key={item}
+                key={item.label}
                 className="rounded-xl border border-ink-100 bg-white/75 px-4 py-3"
               >
-                <div className="font-semibold text-ink-900">{item}</div>
-                <div className="mt-1 text-ink-500">从一个高频场景先跑通</div>
+                <div className="font-semibold text-ink-900">{item.value}</div>
+                <div className="mt-1 text-ink-500">{item.label}</div>
               </div>
             ))}
           </div>

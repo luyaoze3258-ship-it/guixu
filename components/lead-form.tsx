@@ -66,13 +66,6 @@ export function LeadForm() {
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="姓名" name="name" placeholder="如：王明" required />
         <Field
-          label="电话"
-          name="phone"
-          type="tel"
-          placeholder="如：138 0000 0000"
-          required
-        />
-        <Field
           label="公司"
           name="company"
           placeholder="您的公司名称"
@@ -83,28 +76,32 @@ export function LeadForm() {
           name="email"
           type="email"
           placeholder="name@company.com"
+          required
+        />
+        <Field
+          label="电话（可选）"
+          name="phone"
+          type="tel"
+          placeholder="如：138 0000 0000"
         />
       </div>
 
       <label className="mt-5 block">
         <span className="block text-[13px] font-medium text-ink-700">
-          需求类型 <span className="text-brand-500">*</span>
+          想优先沟通的方向（可选）
         </span>
         <select
           name="needType"
-          required
           defaultValue=""
           className="mt-1.5 w-full rounded-lg border border-ink-100 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/15"
         >
-          <option value="" disabled>
-            请选择希望优先沟通的方向
-          </option>
+          <option value="">不确定，先聊聊</option>
           <option value="销售助手智能体 Visualize">销售助手智能体 Visualize</option>
           <option value="风控与管理智能体 Optimize">风控与管理智能体 Optimize</option>
           <option value="智能知识库智能体">智能知识库智能体</option>
           <option value="观澜智能审核">观澜智能审核</option>
           <option value="AI 培训课程">AI 培训课程</option>
-          <option value="AI 落地 / 外包开发">AI 落地 / 外包开发</option>
+          <option value="AI 落地 / 定制交付">AI 落地 / 定制交付</option>
           <option value="企业 AI 场景诊断">企业 AI 场景诊断</option>
           <option value="私有化部署 / 系统集成">私有化部署 / 系统集成</option>
           <option value="POC 试用评估">POC 试用评估</option>
@@ -113,13 +110,12 @@ export function LeadForm() {
 
       <label className="mt-5 block">
         <span className="block text-[13px] font-medium text-ink-700">
-          需求描述 <span className="text-brand-500">*</span>
+          需求描述（可选，留得越多我们准备得越细）
         </span>
         <textarea
           name="message"
-          rows={4}
-          required
-          placeholder="请简述您当前想 AI 化的业务流程、团队规模、系统现状或希望了解的产品能力。"
+          rows={3}
+          placeholder="可简述当前想 AI 化的业务流程、团队规模或希望了解的能力。"
           className="mt-1.5 w-full resize-none rounded-lg border border-ink-100 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-300 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/15"
         />
       </label>

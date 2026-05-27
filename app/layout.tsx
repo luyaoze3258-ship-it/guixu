@@ -2,6 +2,49 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileStickyCta } from "@/components/mobile-sticky-cta";
+import { JsonLd } from "@/components/json-ld";
+import { site } from "@/lib/site";
+
+const SITE_URL = "https://www.guixucloud.com";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: site.name,
+  alternateName: site.enName,
+  legalName: site.legalName,
+  url: SITE_URL,
+  logo: `${SITE_URL}/brand-mark-neon.jpg`,
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address,
+    addressLocality: "北京",
+    addressRegion: "北京",
+    addressCountry: "CN",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: site.email,
+      areaServed: "CN",
+      availableLanguage: ["zh-CN"],
+    },
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: `${site.name} · 企业 AI 智能体与落地服务`,
+  inLanguage: "zh-CN",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.guixucloud.com"),
@@ -33,7 +76,6 @@ export const metadata: Metadata = {
   authors: [{ name: "归序科技" }],
   alternates: {
     canonical: "/",
-    languages: { "zh-CN": "/", "en-US": "/en" },
   },
   icons: {
     icon: "/brand-mark-neon.jpg",
@@ -75,9 +117,12 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className="min-h-screen bg-white text-ink-900 antialiased">
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />
+        <MobileStickyCta />
       </body>
     </html>
   );

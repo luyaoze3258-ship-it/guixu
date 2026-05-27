@@ -1,10 +1,10 @@
 type LeadInput = {
   name: string;
-  phone: string;
+  phone?: string;
   company: string;
-  email?: string;
-  needType: string;
-  message: string;
+  email: string;
+  needType?: string;
+  message?: string;
 };
 
 type DingResponse = { errcode: number; errmsg: string };
@@ -43,18 +43,27 @@ function escapeMd(value: string): string {
 
 function buildMessage(lead: LeadInput) {
   const ts = new Date().toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" });
+  const messageBlock = lead.message
+    ? [
+        "**需求描述**：",
+        `> ${lead.message
+          .split(/\r?\n/)
+          .map((l) => l.trim())
+          .filter(Boolean)
+          .join("\n> ")}`,
+        "",
+      ]
+    : [];
   const lines = [
     "### 🔔 归序官网 · 新销售线索",
     "",
     `**公司**：${escapeMd(lead.company)}`,
     `**联系人**：${escapeMd(lead.name)}`,
-    `**电话**：${escapeMd(lead.phone)}`,
-    `**邮箱**：${lead.email ? escapeMd(lead.email) : "—"}`,
-    `**需求类型**：${escapeMd(lead.needType)}`,
+    `**邮箱**：${escapeMd(lead.email)}`,
+    `**电话**：${lead.phone ? escapeMd(lead.phone) : "—"}`,
+    `**需求类型**：${lead.needType ? escapeMd(lead.needType) : "—"}`,
     "",
-    "**需求描述**：",
-    `> ${lead.message.split(/\r?\n/).map((l) => l.trim()).filter(Boolean).join("\n> ")}`,
-    "",
+    ...messageBlock,
     `_时间：${ts}_`,
   ];
   return {
