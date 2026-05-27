@@ -3,7 +3,8 @@ export const site = {
   enName: "Guixu",
   legalName: "北京归序信息科技有限公司",
   domain: "guixucloud.com",
-  email: "hello@guixucloud.com",
+  email: "kangjinlong@guixucloud.com",
+  address: "北京市海淀区学院路 39 号一幢唯实大厦 10 层 1002 号",
   product: {
     name: "观澜",
     enName: "Guanlan",

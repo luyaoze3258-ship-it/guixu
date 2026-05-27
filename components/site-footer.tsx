@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 const cols: Array<{
@@ -37,7 +38,7 @@ const cols: Array<{
     links: [
       { href: "/#about", label: "关于我们" },
       { href: "/#contact", label: "联系方式" },
-      { href: "mailto:hello@guixucloud.com", label: "媒体合作" },
+      { href: `mailto:${site.email}`, label: "媒体合作" },
     ],
   },
   {
@@ -57,13 +58,15 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-[1.3fr_repeat(5,1fr)]">
           <div>
             <div className="flex items-center gap-2 text-base font-semibold text-ink-900">
-              <span
-                aria-hidden
-                className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-brand-500 text-[13px] font-bold text-white"
-              >
-                归
+              <span className="inline-flex h-11 w-[158px] items-center overflow-hidden rounded-lg bg-black shadow-sm ring-1 ring-ink-100">
+                <Image
+                  src="/logo-wordmark-neon.jpg"
+                  alt={`${site.name} Guixu Technology`}
+                  width={709}
+                  height={250}
+                  className="h-full w-full object-contain"
+                />
               </span>
-              {site.name}
             </div>
             <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink-500">
               {site.legalName}。提供企业 AI 智能体、培训课程、咨询陪跑与定制交付服务，帮助客户把高频流程 AI 化。
@@ -76,6 +79,9 @@ export function SiteFooter() {
               >
                 {site.email}
               </a>
+            </p>
+            <p className="mt-2 max-w-xs text-[13px] leading-relaxed text-ink-500">
+              地址 · <span className="text-ink-700">{site.address}</span>
             </p>
           </div>
 

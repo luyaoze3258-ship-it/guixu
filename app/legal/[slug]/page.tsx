@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
+import { site } from "@/lib/site";
 
 const legalPages = {
   privacy: {
@@ -9,7 +10,7 @@ const legalPages = {
     items: [
       "我们仅收集用于业务沟通所需的信息，包括姓名、电话、公司、工作邮箱、需求类型与需求描述。",
       "表单信息只用于方案评估、演示预约、POC 沟通和必要的客户服务，不会出售给第三方。",
-      "如需删除或更正已提交的信息，可通过 hello@guixucloud.com 联系我们处理。",
+      `如需删除或更正已提交的信息，可通过 ${site.email} 联系我们处理。`,
     ],
   },
   terms: {
@@ -94,7 +95,7 @@ export default async function LegalPage({
           </div>
 
           <p className="mt-8 border-t border-ink-100 pt-5 text-[13px] text-ink-500">
-            最近更新：2026 年 5 月 27 日。如需进一步说明，请联系 hello@guixucloud.com。
+            最近更新：2026 年 5 月 27 日。如需进一步说明，请联系 {site.email}。
           </p>
         </article>
       </div>

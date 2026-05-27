@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,6 +17,8 @@ import {
   Handshake,
   Layers,
   LineChart,
+  Mail,
+  MapPin,
   MessageSquareText,
   MonitorCog,
   Network,
@@ -27,6 +30,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
+import { site } from "@/lib/site";
 
 const offerStats = [
   { value: "4 类", label: "标准智能体", note: "销售、管理、知识库、审核场景可组合" },
@@ -236,6 +240,42 @@ const ctaOptions = [
   "申请培训 / POC / 外包方案评估",
 ];
 
+const contactMethods = [
+  {
+    icon: Mail,
+    label: "邮箱联系",
+    value: site.email,
+    href: `mailto:${site.email}`,
+  },
+  {
+    icon: MapPin,
+    label: "公司地址",
+    value: site.address,
+    href: undefined,
+  },
+] as const;
+
+const socialQrcodes = [
+  {
+    label: "公众号",
+    title: "关注归序科技公众号",
+    desc: "获取企业 AI 落地方法、产品动态和案例文章。",
+    src: "/wechat-official-qrcode.jpg",
+    alt: "归序科技公众号二维码",
+    width: 430,
+    height: 430,
+  },
+  {
+    label: "视频号",
+    title: "关注归序科技视频号",
+    desc: "获取企业 AI 智能体、流程 AI 化和落地案例内容。",
+    src: "/video-channel-qrcode.jpg",
+    alt: "归序科技视频号二维码",
+    width: 722,
+    height: 960,
+  },
+] as const;
+
 export default function Page() {
   return (
     <>
@@ -266,7 +306,7 @@ function Hero() {
         className="pointer-events-none absolute -bottom-32 left-[-10%] h-[420px] w-[420px] rounded-full bg-emerald-200/35 blur-3xl"
       />
 
-      <div className="container-page relative grid gap-8 py-14 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-28">
+      <div className="container-page relative grid gap-8 py-12 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-28">
         <div>
           <span className="badge">
             <Sparkles className="size-3.5" /> AI 智能体 / 培训 / 落地交付
@@ -354,7 +394,7 @@ function HeroVisual() {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative hidden md:block">
       <div className="rounded-2xl border border-ink-100 bg-white p-5 shadow-[0_24px_60px_-30px_rgba(13,38,128,0.45)]">
         <div className="flex items-center gap-2 border-b border-ink-100 pb-3">
           <Bot className="size-4 text-brand-600" />
@@ -888,9 +928,68 @@ function CTAContact() {
             <Bullet>支持基于真实样本的 POC 与流程回测</Bullet>
             <Bullet>输出可转发给业务、IT、采购的评估材料</Bullet>
           </ul>
+
+          <div className="mt-8 grid gap-3">
+            {contactMethods.map((method) => (
+              <div
+                key={method.label}
+                className="flex gap-3 rounded-xl border border-ink-100 bg-white px-4 py-4"
+              >
+                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-white">
+                  <method.icon className="size-5" />
+                </span>
+                <div>
+                  <div className="text-[13px] font-semibold text-ink-900">
+                    {method.label}
+                  </div>
+                  {method.href ? (
+                    <Link
+                      href={method.href}
+                      className="mt-1 block break-all text-[14px] leading-relaxed text-ink-600 hover:text-brand-600"
+                    >
+                      {method.value}
+                    </Link>
+                  ) : (
+                    <p className="mt-1 text-[14px] leading-relaxed text-ink-600">
+                      {method.value}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <LeadForm />
+        <div className="grid gap-5">
+          <LeadForm />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {socialQrcodes.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-ink-100 bg-white p-5 shadow-[0_18px_50px_-36px_rgba(13,38,128,0.45)]"
+              >
+                <div className="mx-auto aspect-square w-full max-w-[168px] overflow-hidden rounded-xl border border-ink-100 bg-white">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="mt-5 text-[13px] font-semibold text-brand-600">
+                  {item.label}
+                </div>
+                <h3 className="mt-2 text-[17px] font-semibold text-ink-900">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink-500">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

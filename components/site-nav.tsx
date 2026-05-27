@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -15,15 +16,15 @@ export function SiteNav() {
           href="/"
           className="flex items-center gap-2 text-base font-semibold tracking-tight text-ink-900"
         >
-          <span
-            aria-hidden
-            className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-brand-500 text-[13px] font-bold text-white"
-          >
-            归
-          </span>
-          <span>{site.name}</span>
-          <span className="ml-1 text-[13px] font-medium text-ink-500">
-            Guixu
+          <span className="inline-flex h-11 w-[158px] items-center overflow-hidden rounded-lg bg-black shadow-sm ring-1 ring-ink-100">
+            <Image
+              src="/logo-wordmark-neon.jpg"
+              alt={`${site.name} Guixu Technology`}
+              width={709}
+              height={250}
+              priority
+              className="h-full w-full object-contain"
+            />
           </span>
         </Link>
 

@@ -36,7 +36,8 @@ export const metadata: Metadata = {
     languages: { "zh-CN": "/", "en-US": "/en" },
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: "/brand-mark-neon.jpg",
+    apple: "/brand-mark-neon.jpg",
   },
   openGraph: {
     title: "归序科技 · 企业 AI 智能体与落地服务",
