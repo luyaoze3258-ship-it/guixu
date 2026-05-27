@@ -1,5 +1,3 @@
-import crypto from "node:crypto";
-
 type LeadInput = {
   name: string;
   phone: string;
@@ -14,16 +12,32 @@ type DingResponse = { errcode: number; errmsg: string };
 const WEBHOOK = process.env.DINGTALK_WEBHOOK;
 const SECRET = process.env.DINGTALK_SECRET;
 
-function signedUrl(webhook: string, secret: string): string {
+async function hmacSha256Base64(secret: string, payload: string): Promise<string> {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    enc.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const sig = await crypto.subtle.sign("HMAC", key, enc.encode(payload));
+  // base64 encode
+  let binary = "";
+  const bytes = new Uint8Array(sig);
+  for (let i = 0; i < bytes.byteLength; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary);
+}
+
+async function signedUrl(webhook: string, secret: string): Promise<string> {
   const ts = Date.now().toString();
-  const raw = `${ts}\n${secret}`;
-  const sig = crypto.createHmac("sha256", secret).update(raw).digest("base64");
+  const sig = await hmacSha256Base64(secret, `${ts}\n${secret}`);
   return `${webhook}&timestamp=${ts}&sign=${encodeURIComponent(sig)}`;
 }
 
 function escapeMd(value: string): string {
-  // DingTalk markdown does not need HTML escaping, but we strip line breaks
-  // in inline fields so the layout stays compact.
   return value.replace(/[\r\n]+/g, " ").trim();
 }
 
@@ -61,7 +75,7 @@ export async function notifyDingtalk(lead: LeadInput): Promise<DingtalkResult> {
   if (!WEBHOOK || !SECRET) {
     return { ok: false, reason: "missing-env" };
   }
-  const url = signedUrl(WEBHOOK, SECRET);
+  const url = await signedUrl(WEBHOOK, SECRET);
   let res: Response;
   try {
     res = await fetch(url, {

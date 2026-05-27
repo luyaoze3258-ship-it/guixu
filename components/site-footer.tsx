@@ -8,18 +8,28 @@ const cols: Array<{
   {
     title: "产品",
     links: [
+      { href: "/#agents", label: "销售助手智能体" },
+      { href: "/#agents", label: "风控与管理智能体" },
+      { href: "/#agents", label: "智能知识库智能体" },
       { href: "/guanlan", label: "观澜·智能审核" },
-      { href: "/guanlan#capabilities", label: "核心能力" },
-      { href: "/guanlan#scenarios", label: "适用场景" },
-      { href: "/#contact", label: "申请试用" },
     ],
   },
   {
-    title: "解决方案",
+    title: "服务",
     links: [
-      { href: "/#solutions", label: "差旅审核" },
-      { href: "/#solutions", label: "合同审核" },
-      { href: "/#solutions", label: "发票核验" },
+      { href: "/#services", label: "AI 培训课程" },
+      { href: "/#services", label: "咨询陪跑服务" },
+      { href: "/#services", label: "AI 外包与定制交付" },
+      { href: "/#contact", label: "申请方案评估" },
+    ],
+  },
+  {
+    title: "场景",
+    links: [
+      { href: "/#fit", label: "销售与增长团队" },
+      { href: "/#fit", label: "企业知识库" },
+      { href: "/#fit", label: "流程 AI 化改造" },
+      { href: "/#solutions", label: "落地方案" },
     ],
   },
   {
@@ -44,7 +54,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-ink-100 bg-ink-50/60">
       <div className="container-page py-16">
-        <div className="grid gap-10 md:grid-cols-[1.3fr_repeat(4,1fr)]">
+        <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-[1.3fr_repeat(5,1fr)]">
           <div>
             <div className="flex items-center gap-2 text-base font-semibold text-ink-900">
               <span
@@ -56,7 +66,7 @@ export function SiteFooter() {
               {site.name}
             </div>
             <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink-500">
-              {site.legalName}。专注于企业级智能审核解决方案，为未来财务与合规流程提供决策引擎。
+              {site.legalName}。提供企业 AI 智能体、培训课程、咨询陪跑与定制交付服务，帮助客户把高频流程 AI 化。
             </p>
             <p className="mt-4 text-[13px] text-ink-500">
               邮箱 ·{" "}

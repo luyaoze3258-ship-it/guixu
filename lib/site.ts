@@ -15,8 +15,9 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "首页" },
-  { href: "/guanlan", label: "观澜·智能审核" },
-  { href: "/#solutions", label: "解决方案" },
-  { href: "/#cases", label: "应用场景" },
+  { href: "/#fit", label: "适用场景" },
+  { href: "/#agents", label: "智能体" },
+  { href: "/#services", label: "培训与交付" },
+  { href: "/guanlan", label: "观澜" },
   { href: "/#contact", label: "联系我们" },
 ] as const;

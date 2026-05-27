@@ -40,8 +40,8 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/guanlan" className="btn-ghost hidden md:inline-flex">
-            产品演示
+          <Link href="/#agents" className="btn-ghost hidden md:inline-flex">
+            智能体矩阵
           </Link>
           <Link
             href="/#contact"
@@ -78,11 +78,11 @@ export function SiteNav() {
               </Link>
             ))}
             <Link
-              href="/guanlan"
+              href="/#agents"
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-3 text-[15px] font-medium text-ink-700 hover:bg-ink-50 hover:text-brand-600"
             >
-              产品演示
+              智能体矩阵
             </Link>
             <Link
               href="/#contact"

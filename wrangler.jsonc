@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "guixu-web",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // DINGTALK_WEBHOOK 与 DINGTALK_SECRET 通过 Cloudflare Dashboard
+  // -> Workers & Pages -> 项目 -> Settings -> Variables and Secrets 注入
+  // 不写在此文件，避免泄露
+}

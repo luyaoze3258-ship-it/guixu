@@ -6,13 +6,20 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.guixucloud.com"),
   title: {
-    default: "归序科技 · 让审批从小时级变成分钟级",
+    default: "归序科技 · 企业 AI 智能体与落地服务",
     template: "%s · 归序科技 Guixu",
   },
   description:
-    "归序科技为企业财务与法务流程提供 AI 智能审核引擎（观澜·Guanlan）。秒级解析复杂票据与多页合同，快速输出可审计的合规决策。",
+    "归序科技提供销售助手、风控管理、智能知识库、观澜智能审核等企业 AI 智能体，以及 AI 培训、咨询陪跑、私有化部署和定制外包交付服务。",
   keywords: [
     "归序科技",
+    "AI 智能体",
+    "企业 AI 落地",
+    "AI 培训",
+    "AI 外包",
+    "智能知识库",
+    "销售助手智能体",
+    "销售管理智能体",
     "观澜",
     "Guanlan",
     "智能审核",
@@ -28,10 +35,13 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { "zh-CN": "/", "en-US": "/en" },
   },
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: "归序科技 · 观澜智能审核",
+    title: "归序科技 · 企业 AI 智能体与落地服务",
     description:
-      "面向企业财务与法务流程的 AI 智能审核引擎，让审批从小时级变成分钟级。",
+      "从标准智能体、AI 培训到定制外包交付，帮助企业把高频业务流程 AI 化。",
     url: "https://www.guixucloud.com",
     siteName: "归序科技 Guixu",
     locale: "zh_CN",
@@ -39,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "归序科技 · 观澜智能审核",
+    title: "归序科技 · 企业 AI 智能体与落地服务",
     description:
-      "面向企业财务与法务流程的 AI 智能审核引擎，让审批从小时级变成分钟级。",
+      "从标准智能体、AI 培训到定制外包交付，帮助企业把高频业务流程 AI 化。",
   },
   robots: {
     index: true,

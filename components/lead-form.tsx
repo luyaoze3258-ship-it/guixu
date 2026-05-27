@@ -45,7 +45,7 @@ export function LeadForm() {
           已收到您的需求
         </div>
         <p className="mt-2 text-[14px] text-ink-700">
-          我们的技术专家将在 24 小时内与您联系。
+          我们将在 24 小时内与您确认场景、样本和下一步评估方式。
         </p>
         <button
           type="button"
@@ -99,9 +99,13 @@ export function LeadForm() {
           <option value="" disabled>
             请选择希望优先沟通的方向
           </option>
-          <option value="差旅与费用审核">差旅与费用审核</option>
-          <option value="合同与法务审核">合同与法务审核</option>
-          <option value="发票与凭证核验">发票与凭证核验</option>
+          <option value="销售助手智能体 Visualize">销售助手智能体 Visualize</option>
+          <option value="风控与管理智能体 Optimize">风控与管理智能体 Optimize</option>
+          <option value="智能知识库智能体">智能知识库智能体</option>
+          <option value="观澜智能审核">观澜智能审核</option>
+          <option value="AI 培训课程">AI 培训课程</option>
+          <option value="AI 落地 / 外包开发">AI 落地 / 外包开发</option>
+          <option value="企业 AI 场景诊断">企业 AI 场景诊断</option>
           <option value="私有化部署 / 系统集成">私有化部署 / 系统集成</option>
           <option value="POC 试用评估">POC 试用评估</option>
         </select>
@@ -115,7 +119,7 @@ export function LeadForm() {
           name="message"
           rows={4}
           required
-          placeholder="请简述您当前的审核痛点、审批量级或希望了解的产品能力。"
+          placeholder="请简述您当前想 AI 化的业务流程、团队规模、系统现状或希望了解的产品能力。"
           className="mt-1.5 w-full resize-none rounded-lg border border-ink-100 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-300 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/15"
         />
       </label>

@@ -9,6 +9,19 @@ out/
 build/
 dist/
 
+# cloudflare / opennext
+.open-next/
+open-next-tmp*/
+.wrangler/
+.dev.vars
+.dev.vars.*
+
+# unrelated office docs
+*.xlsx
+*.xls
+*.docx
+*.doc
+
 # misc
 .DS_Store
 *.log
