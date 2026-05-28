@@ -33,10 +33,10 @@ import { LeadForm } from "@/components/lead-form";
 import { site } from "@/lib/site";
 
 const offerStats = [
-  { value: "4 类", label: "标准智能体", note: "销售、管理、知识库、审核场景可组合" },
-  { value: "4 周", label: "POC 到试运行", note: "按典型流程跑通一条真实业务线" },
-  { value: "3 层", label: "落地服务", note: "培训、咨询陪跑、定制开发交付" },
-  { value: "私有化", label: "企业级部署", note: "支持系统对接、权限、审计与数据隔离" },
+  { value: "200+", label: "审核规则库", note: "差旅 / 合同 / 发票 / 凭证场景沉淀，可按企业制度扩展" },
+  { value: "4 周", label: "POC 到试运行", note: "真实样本验证准确率与节省工时，再灰度上线" },
+  { value: "8×", label: "审核效率提升", note: "AI 全量预审 + 人工复核异常单据，告别抽检" },
+  { value: "私有化", label: "企业级部署", note: "数据不出域，支持权限、审计与系统对接" },
 ];
 
 const buyerSegments = [
@@ -85,7 +85,12 @@ const agentProducts = [
     enName: "Visualize",
     promise: "让销售过程看得见",
     desc: "把线上文档、线下附件、语音和自然语言记录转成客户与项目动态，自动质检并生成销售周日报。",
-    points: ["多渠道销售数据采集", "AI 交互式内容录入", "工作动态质检入库", "销售周日报自动推送"],
+    points: [
+      "周日报自动生成 · 一线撰写时间从小时级压到分钟级",
+      "销售动态自动入库 · 杜绝假报、漏报、滞后报",
+      "客户与商机过程可视 · 管理者掌控力提升",
+      "多渠道数据自动汇总 · 不再追问 Excel",
+    ],
   },
   {
     icon: ChartNoAxesCombined,
@@ -93,7 +98,12 @@ const agentProducts = [
     enName: "Optimize",
     promise: "让销售团队卖得好",
     desc: "基于销售标准化打法，对客户、商机、漏斗和收入预测做自动 Review，输出风险预警与下一步动作建议。",
-    points: ["Sales Playbook 自动构建", "客户 / 商机自动 Review", "转化风险与收入预测", "过程指标管理与辅导"],
+    points: [
+      "商机风险主动预警 · 在月底掉单前介入",
+      "收入预测可信度提升 · 月度复盘有数据可看",
+      "标准打法沉淀复用 · Top sales 经验变组织资产",
+      "漏斗阶段自动 Review · 管理 1V20 不再靠手抄",
+    ],
   },
   {
     icon: DatabaseZap,
@@ -101,7 +111,12 @@ const agentProducts = [
     enName: "Knowledge Agent",
     promise: "让企业知识可问可用",
     desc: "上传企业文档并自动解析，沉淀知识图谱与问答智能体，让制度、产品资料和交付经验可被一线复用。",
-    points: ["文档自动解析", "知识图谱构建", "自动生成问答 Agent", "结果可下载可复用"],
+    points: [
+      "新人上手周期缩短 · 不再追着老人问",
+      "一线支持响应提速 · 答案带来源可追溯",
+      "制度变更自动覆盖 · 不再有过期文档误导",
+      "结果可下载可外发 · 客户提案/内训直接用",
+    ],
   },
   {
     icon: FileSearch,
@@ -109,7 +124,12 @@ const agentProducts = [
     enName: "Guanlan",
     promise: "让审核可追溯可审计",
     desc: "面向差旅、合同、发票与凭证场景，把大模型理解、企业规则和人工复核流程封装为智能审核平台。",
-    points: ["差旅与费用审核", "合同条款风险识别", "发票凭证核验", "全链路审计留痕"],
+    points: [
+      "从抽检升级到 100% 全量预审 · 200+ 规则沉淀",
+      "异常单据优先复核 · 团队精力放在真正的风险上",
+      "AI 判断与人工复核全链路留痕 · 满足审计与合规",
+      "账期错配/重复报销/违约条款自动揪出",
+    ],
   },
 ];
 
@@ -128,9 +148,9 @@ const serviceTracks = [
   },
   {
     icon: MonitorCog,
-    title: "AI 外包与定制交付",
-    desc: "针对企业现有流程做 AI 化改造，承接智能体开发、系统对接、私有化部署和部分业务流程自动化。",
-    items: ["企业流程 AI 化评估", "智能体 / 插件定制开发", "OA / ERP / CRM 系统对接", "本地化部署与运维支持"],
+    title: "企业级解决方案交付",
+    desc: "面向企业现有流程做 AI 化改造，承接智能体定制、系统集成、私有化部署与业务流程自动化。",
+    items: ["企业流程 AI 化评估", "智能体 / 插件深度定制", "OA / ERP / CRM 系统集成", "私有化部署与运维支持"],
   },
 ];
 
@@ -163,20 +183,28 @@ const implementationScenarios = [
 
 const customerStories = [
   {
-    industry: "销售型组织",
+    industry: "销售型组织 · 数十人销售团队",
     title: "从销售日志到商机 Review，管理层终于能看见过程质量",
     challenge:
       "销售跟进记录不完整，客户信息沉在个人文档和聊天记录里，管理者只能在月底看结果，很难提前干预风险商机。",
     scope: "接入销售日志、客户资料、商机阶段和会议纪要，用智能体完成信息采集、质检、日报生成和风险提醒。",
-    result: ["销售过程数据自动沉淀", "客户与商机 Review 形成标准动作", "管理者获得下一步行动建议"],
+    result: [
+      "销售日报撰写时间：从人均 30+ 分钟/天 压到分钟级",
+      "客户与商机 Review 形成标准动作 · 每周固化执行",
+      "管理者每条商机可看到下一步行动建议 · 月底前介入",
+    ],
   },
   {
-    industry: "财务 / 法务 / 内控团队",
+    industry: "财务 / 法务 / 内控团队 · 集团多事业部",
     title: "把差旅、合同、发票审核从人工抽检升级为异常优先复核",
     challenge:
       "制度口径多、单据高峰集中、合同版本复杂，团队需要在效率、合规和人工成本之间反复权衡。",
     scope: "接入历史样本、制度规则、合同文本和发票凭证，先做回测，再灰度到真实审批流程。",
-    result: ["异常单据优先分流", "审核口径沉淀为规则库", "复核意见和 AI 判断全链路留痕"],
+    result: [
+      "覆盖率：从人工抽检升级为 100% 全量 AI 预审",
+      "200+ 审核规则沉淀为可复用规则库 · 制度变更可热更新",
+      "AI 判断与人工复核全链路留痕 · 满足审计与合规要求",
+    ],
   },
 ];
 
@@ -187,13 +215,15 @@ const rolloutSteps = [
     period: "第 1 周",
     desc: "梳理业务流程、系统现状、数据样本与收益指标，选出最适合先跑通的 AI 场景。",
     output: "《AI 场景诊断清单》与 POC 指标",
+    effort: "企业投入：业务负责人 ~0.5 人天",
   },
   {
     icon: Layers,
     title: "方案组装",
     period: "第 2 周",
-    desc: "从标准智能体、培训课程、咨询陪跑和定制开发中组合交付方案，明确边界和验收标准。",
+    desc: "从标准智能体、培训课程、咨询陪跑和系统集成中组合交付方案，明确边界与验收标准。",
     output: "方案蓝图、系统边界与验收口径",
+    effort: "企业投入：业务 + IT ~1 人天",
   },
   {
     icon: Route,
@@ -201,6 +231,7 @@ const rolloutSteps = [
     period: "第 3 周",
     desc: "用客户真实样本验证效果，评估准确率、效率、人机协作节点和系统对接复杂度。",
     output: "样本回测报告与上线建议",
+    effort: "企业投入：提供样本 + 评审 ~1 人天",
   },
   {
     icon: Network,
@@ -208,6 +239,7 @@ const rolloutSteps = [
     period: "第 4 周",
     desc: "接入 OA / ERP / CRM / 知识库等系统，灰度到真实流程，并保留权限、审计和人工兜底。",
     output: "试运行 SOP、权限配置与运营看板",
+    effort: "企业投入：IT 对接 + 一线培训 ~2 人天",
   },
 ];
 
@@ -235,9 +267,9 @@ const capabilities = [
 ];
 
 const ctaOptions = [
-  "预约 30 分钟 AI 落地诊断",
-  "领取企业 AI 场景评估清单",
-  "申请培训 / POC / 外包方案评估",
+  { label: "预约 30 分钟 AI 落地诊断", tag: "高意向" },
+  { label: "领取《企业 AI 场景评估清单》PDF", tag: "调研期" },
+  { label: "申请培训 / POC / 系统集成方案评估", tag: "高意向" },
 ];
 
 const contactMethods = [
@@ -296,57 +328,45 @@ export default function Page() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-ink-100 bg-gradient-to-b from-brand-50/60 via-white to-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 right-[-10%] h-[520px] w-[520px] rounded-full bg-brand-500/10 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 left-[-10%] h-[420px] w-[420px] rounded-full bg-emerald-200/35 blur-3xl"
-      />
-
-      <div className="container-page relative grid gap-8 py-12 md:grid-cols-[1.1fr_1fr] md:gap-12 md:py-28">
-        <div>
-          <span className="badge">
+    <section className="surface-dark relative overflow-hidden">
+      <div className="container-page relative grid gap-10 py-20 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-14 md:py-32">
+        <div className="relative z-10">
+          <span className="badge-neon">
             <Sparkles className="size-3.5" /> 财务 · 法务 · 销售流程 AI 化 · 4 周 POC 到上线
           </span>
 
-          <h1 className="mt-5 text-balance text-[38px] font-bold leading-[1.08] tracking-tight text-ink-900 md:mt-6 md:text-[58px]">
-            把 AI 从 PPT 推进到{" "}
-            <span className="whitespace-nowrap rounded-md bg-brand-500/10 px-2 py-0.5 text-brand-600">
-              真实业务流程
-            </span>
+          <h1 className="mt-6 text-balance text-[40px] font-bold leading-[1.05] tracking-tight text-white md:mt-7 md:text-[64px]">
+            把 AI 从 PPT 推进到
+            <br className="hidden md:block" />
+            <span className="text-gradient">真实业务流程</span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ink-500 md:mt-6 md:text-[17px]">
-            销售助手、智能知识库、合同 / 发票 / 差旅审核——
-            4 周用真实样本完成 POC 回测，跑通准确率与节省工时后再灰度上线，
-            保留权限、审计和人工兜底。
+          <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-white/72 md:mt-7 md:text-[17px]">
+            销售助手、智能知识库、合同 / 发票 / 差旅审核——4 周用真实样本完成 POC 回测，跑通准确率与节省工时后再灰度上线，保留权限、审计和人工兜底。
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-9">
-            <Link href="#contact" className="btn-primary">
+          <div className="mt-8 flex flex-wrap items-center gap-3 md:mt-10">
+            <Link href="#contact" className="btn-neon">
               预约 30 分钟 AI 场景诊断 <ArrowRight className="size-4" />
             </Link>
-            <Link href="#playbook" className="btn-ghost">
+            <Link href="#playbook" className="btn-ghost-dark">
               看 4 周落地路径
             </Link>
           </div>
 
-          <ul className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-ink-500 md:mt-8">
+          <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-white/68 md:mt-10">
             <li className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-brand-500" /> 4 周完成样本回测
+              <CheckCircle2 className="size-4 text-[color:var(--color-accent-cyan)]" /> 4 周完成样本回测
             </li>
             <li className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-brand-500" /> 数据不出域 · 全链路审计
+              <CheckCircle2 className="size-4 text-[color:var(--color-accent-cyan)]" /> 数据不出域 · 全链路审计
             </li>
             <li className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-brand-500" /> 保留人工复核边界
+              <CheckCircle2 className="size-4 text-[color:var(--color-accent-cyan)]" /> 保留人工复核边界
             </li>
           </ul>
 
-          <div className="mt-7 grid gap-3 text-[13px] text-ink-700 sm:grid-cols-3 md:mt-8">
+          <div className="mt-8 grid gap-3 text-[13px] sm:grid-cols-3 md:mt-10">
             {[
               { label: "销售日报", value: "自动生成" },
               { label: "知识问答", value: "可追溯复用" },
@@ -354,10 +374,10 @@ function Hero() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl border border-ink-100 bg-white/75 px-4 py-3"
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur-md"
               >
-                <div className="font-semibold text-ink-900">{item.value}</div>
-                <div className="mt-1 text-ink-500">{item.label}</div>
+                <div className="font-semibold text-white">{item.value}</div>
+                <div className="mt-1 text-white/65">{item.label}</div>
               </div>
             ))}
           </div>
@@ -371,87 +391,130 @@ function Hero() {
 
 function HeroVisual() {
   const tasks = [
-    {
-      icon: ScanLine,
-      title: "销售日志采集",
-      detail: "语音 / 文档 / 附件自动提取客户动态",
-      status: "已入库",
-    },
-    {
-      icon: ChartNoAxesCombined,
-      title: "商机风险 Review",
-      detail: "识别关键人缺失、阶段停滞与预算不明",
-      status: "需跟进",
-    },
-    {
-      icon: BookOpenCheck,
-      title: "知识库问答",
-      detail: "从产品资料中生成可追溯答复",
-      status: "可复用",
-    },
-    {
-      icon: FileSearch,
-      title: "合同条款审核",
-      detail: "自动标注违约、账期与主体风险",
-      status: "已复核",
-    },
-  ];
+    { icon: ScanLine, title: "销售日志采集", status: "已入库", accent: "cyan" },
+    { icon: ChartNoAxesCombined, title: "商机风险 Review", status: "需跟进", accent: "violet" },
+    { icon: BookOpenCheck, title: "知识库问答", status: "可复用", accent: "cyan" },
+    { icon: FileSearch, title: "合同条款审核", status: "已复核", accent: "violet" },
+  ] as const;
 
   return (
     <div className="relative hidden md:block">
-      <div className="rounded-2xl border border-ink-100 bg-white p-5 shadow-[0_24px_60px_-30px_rgba(13,38,128,0.45)]">
-        <div className="flex items-center gap-2 border-b border-ink-100 pb-3">
-          <Bot className="size-4 text-brand-600" />
-          <span className="text-[13px] font-medium text-ink-700">
+      <div className="glass-panel p-5">
+        <div className="flex items-center gap-2 border-b border-white/8 pb-3">
+          <Bot className="size-4 text-[color:var(--color-accent-cyan)]" />
+          <span className="text-[13px] font-medium text-white/85">
             企业 AI 流程中台
           </span>
-          <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-semibold text-brand-700">
-            <span className="size-1.5 animate-pulse rounded-full bg-brand-500" />
+          <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-white/[0.04] px-2 py-0.5 text-[11px] font-semibold text-[color:var(--color-accent-cyan)] ring-1 ring-[color:var(--color-accent-cyan)]/30">
+            <span className="size-1.5 animate-pulse rounded-full bg-[color:var(--color-accent-cyan)] shadow-[0_0_10px_var(--color-accent-cyan)]" />
             Agent 运行中
           </span>
         </div>
 
-        <div className="mt-4 grid gap-3 text-[13px]">
-          {tasks.map((task, index) => (
-            <div
-              key={task.title}
-              className={`items-start gap-3 rounded-lg border border-ink-100 px-3 py-3 ${
-                index > 1 ? "hidden md:flex" : "flex"
-              }`}
-            >
-              <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
-                <task.icon className="size-4" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-medium text-ink-900">{task.title}</span>
-                  <span className="whitespace-nowrap text-[11px] font-semibold text-brand-600">
-                    {task.status}
+        <div className="relative mt-4">
+          <svg
+            aria-hidden
+            className="pointer-events-none absolute inset-0 h-full w-full"
+            viewBox="0 0 400 280"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="wf-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#56c7f4" stopOpacity="0.8" />
+                <stop offset="62%" stopColor="#2d5bff" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#6d5cff" stopOpacity="0.72" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M 60 40 C 140 40, 160 110, 240 110 S 340 180, 360 230"
+              fill="none"
+              stroke="url(#wf-grad)"
+              strokeWidth="1.4"
+              className="anim-dash"
+              opacity="0.7"
+            />
+            <path
+              d="M 60 240 C 140 220, 200 160, 280 150 S 360 80, 380 60"
+              fill="none"
+              stroke="url(#wf-grad)"
+              strokeWidth="1.1"
+              className="anim-dash"
+              opacity="0.45"
+            />
+          </svg>
+
+          <div className="relative grid gap-2.5 text-[13px]">
+            {tasks.map((task) => {
+              const cyan = task.accent === "cyan";
+              return (
+                <div
+                  key={task.title}
+                  className="flex items-center gap-3 rounded-lg border border-white/8 bg-white/[0.025] px-3 py-2.5 backdrop-blur-md"
+                >
+                  <span
+                    className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg"
+                    style={{
+                      background: cyan
+                        ? "linear-gradient(135deg, rgba(86,199,244,0.18), rgba(86,199,244,0.05))"
+                        : "linear-gradient(135deg, rgba(45,91,255,0.22), rgba(109,92,255,0.05))",
+                      boxShadow: cyan
+                        ? "0 0 18px rgba(86,199,244,0.35) inset"
+                        : "0 0 18px rgba(45,91,255,0.4) inset",
+                      color: cyan ? "var(--color-accent-cyan)" : "var(--color-accent-violet)",
+                    }}
+                  >
+                    <task.icon className="size-4" />
                   </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-medium text-white/90">
+                        {task.title}
+                      </span>
+                      <span
+                        className="whitespace-nowrap text-[11px] font-semibold"
+                        style={{
+                          color: cyan
+                            ? "var(--color-accent-cyan)"
+                            : "var(--color-accent-violet)",
+                        }}
+                      >
+                        {task.status}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-ink-500">
-                  {task.detail}
-                </p>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-4 rounded-xl bg-ink-50 px-4 py-3 md:mt-5">
-          <div className="flex items-center justify-between gap-4 text-[12px] text-ink-500">
-            <span>下一步建议</span>
-            <span className="font-semibold text-brand-700">安排业务负责人复核</span>
+        <div className="mt-5 rounded-xl border border-white/8 bg-white/[0.025] px-4 py-3">
+          <div className="flex items-center justify-between gap-4 text-[12px] text-white/68">
+            <span>实时审核效率</span>
+            <span className="font-semibold text-white">
+              <span className="text-gradient">+200%</span>
+            </span>
           </div>
-          <div className="mt-3 h-2 rounded-full bg-white">
-            <div className="h-2 w-[72%] rounded-full bg-brand-500" />
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+            <div
+              className="h-full w-[78%] rounded-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-violet), var(--color-accent-rose))",
+                boxShadow: "0 0 18px rgba(45, 91, 255, 0.65)",
+              }}
+            />
           </div>
         </div>
       </div>
 
-      <div className="absolute -right-4 -bottom-6 hidden rounded-xl border border-ink-100 bg-white px-4 py-3 shadow-lg md:block">
-        <div className="text-[11px] text-ink-500">建议先试点</div>
-        <div className="mt-0.5 text-[20px] font-semibold text-ink-900">
-          1 <span className="text-[13px] font-medium text-ink-500">条高频流程</span>
+      <div className="anim-float absolute -right-6 -bottom-8 hidden rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 backdrop-blur-md glow-soft md:block">
+        <div className="text-[11px] text-white/68">建议先试点</div>
+        <div className="mt-0.5 text-[20px] font-semibold text-white">
+          <span className="text-gradient">1</span>
+          <span className="ml-1 text-[13px] font-medium text-white/68">
+            条高频流程
+          </span>
         </div>
       </div>
     </div>
@@ -460,37 +523,59 @@ function HeroVisual() {
 
 function ProofStrip() {
   return (
-    <section id="proof" className="border-b border-ink-100 bg-ink-50/40">
-      <div className="container-page py-10">
+    <section id="proof" className="relative border-b border-ink-100 bg-white">
+      {/* Top neon hairline accent — visual bridge from dark hero */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, var(--color-accent-cyan) 30%, var(--color-accent-violet) 50%, var(--color-accent-rose) 70%, transparent)",
+          opacity: 0.45,
+        }}
+      />
+      <div className="container-page py-14 md:py-16">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <div>
             <span className="eyebrow">BUSINESS OUTCOME</span>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink-900">
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink-900 md:text-[28px]">
               先用真实场景验证价值，再进入规模化建设
             </h2>
-            <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-ink-500">
+            <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink-500">
               我们把智能体产品、培训课程和交付服务组合成可评估的方案，用客户样本验证效果、边界和上线条件。
             </p>
           </div>
           <Link
             href="#contact"
-            className="inline-flex items-center gap-1 text-[14px] font-medium text-brand-600 hover:text-brand-700"
+            className="inline-flex items-center gap-1 text-[14px] font-medium text-[color:var(--color-accent-violet)] hover:text-[color:var(--color-accent-rose)]"
           >
             申请方案评估 <ArrowRight className="size-4" />
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {offerStats.map((t) => (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {offerStats.map((t, idx) => (
             <div
               key={t.label}
-              className="rounded-xl border border-ink-100 bg-white p-5"
+              className="group relative overflow-hidden rounded-xl border border-ink-100 bg-white p-5 transition hover:-translate-y-0.5 hover:border-transparent hover:shadow-[0_18px_50px_-26px_rgba(45,91,255,0.35)]"
             >
-              <div className="text-[28px] font-semibold tracking-tight text-ink-900">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity group-hover:opacity-100"
+                style={{
+                  background:
+                    idx % 2 === 0
+                      ? "radial-gradient(circle at 0% 0%, rgba(86,199,244,0.08), transparent 60%)"
+                      : "radial-gradient(circle at 100% 0%, rgba(45,91,255,0.1), transparent 60%)",
+                }}
+              />
+              <div className="relative text-[32px] font-semibold tracking-tight text-gradient">
                 {t.value}
               </div>
-              <div className="mt-1 text-[13px] text-ink-500">{t.label}</div>
-              <div className="mt-3 border-t border-ink-100 pt-3 text-[12px] leading-relaxed text-ink-500">
+              <div className="relative mt-1 text-[13px] font-medium text-ink-700">
+                {t.label}
+              </div>
+              <div className="relative mt-3 border-t border-ink-100 pt-3 text-[12px] leading-relaxed text-ink-500">
                 {t.note}
               </div>
             </div>
@@ -503,13 +588,14 @@ function ProofStrip() {
 
 function AgentMatrix() {
   return (
-    <section id="agents" className="border-b border-ink-100 bg-white">
-      <div className="container-page py-24">
+    <section id="agents" className="relative border-b border-ink-100 bg-ink-50/30">
+      <div className="container-page py-28 md:py-32">
         <header className="grid gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-end">
           <div>
             <span className="eyebrow">AI AGENT MATRIX</span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
-              不只做一个工具，而是一组可组合的企业智能体
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink-900 md:text-[42px]">
+              不只做一个工具，而是一组
+              <span className="text-gradient">可组合的企业智能体</span>
             </h2>
           </div>
           <p className="text-[15px] leading-relaxed text-ink-500">
@@ -517,35 +603,48 @@ function AgentMatrix() {
           </p>
         </header>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-14 grid auto-rows-fr gap-5 md:grid-cols-2">
           {agentProducts.map((agent) => (
-            <article key={agent.name} className="card flex h-full flex-col">
+            <article
+              key={agent.name}
+              className="bento group flex h-full flex-col"
+            >
               <div className="flex items-center gap-3">
-                <span className="inline-flex size-11 items-center justify-center rounded-lg bg-brand-500/10 text-brand-700">
+                <span
+                  className="inline-flex size-12 items-center justify-center rounded-xl text-[color:var(--color-accent-violet)] transition-transform duration-300 group-hover:scale-110"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(86,199,244,0.14), rgba(45,91,255,0.14))",
+                    boxShadow:
+                      "inset 0 0 0 1px rgba(45,91,255,0.18), 0 8px 24px -12px rgba(45,91,255,0.4)",
+                  }}
+                >
                   <agent.icon className="size-5" />
                 </span>
                 <div>
                   <div className="text-[18px] font-semibold text-ink-900">
                     {agent.name}
                   </div>
-                  <div className="text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-600">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-accent-violet)]">
                     {agent.enName}
                   </div>
                 </div>
               </div>
 
-              <h3 className="mt-5 text-[22px] font-semibold tracking-tight text-ink-900">
+              <h3
+                className="mt-5 text-[24px] font-bold leading-tight tracking-tight text-ink-900"
+              >
                 {agent.promise}
               </h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-ink-500">
+              <p className="mt-3 text-[14px] font-normal leading-relaxed text-ink-500">
                 {agent.desc}
               </p>
 
-              <ul className="mt-6 grid gap-2 border-t border-ink-100 pt-5 text-[13px] text-ink-700 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-3 border-t border-ink-100 pt-5 text-[13px] leading-relaxed text-ink-700">
                 {agent.points.map((point) => (
                   <li key={point} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-brand-500" />
-                    {point}
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 stroke-[2.4] text-[color:var(--color-accent-blue)]" />
+                    <span>{point}</span>
                   </li>
                 ))}
               </ul>
@@ -635,7 +734,7 @@ function ServiceTracks() {
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-ink-500">
             很多企业不是缺 AI 工具，而是缺场景选择、人员训练、流程改造和工程交付。
-            这部分由培训、咨询陪跑和外包开发共同补齐。
+            这部分由培训、咨询陪跑和企业级系统集成共同补齐。
           </p>
         </header>
 
@@ -731,11 +830,16 @@ function CaseStories() {
             </h2>
           </div>
           <p className="text-[15px] leading-relaxed text-ink-500">
-            以下是面向销售管理与审核流程的脱敏落地路径，展示从问题、接入范围到业务变化的闭环。客户授权后可继续补充 logo、截图和成效数据。
+            以下案例基于真实客户样本与已落地的智能体能力做脱敏展示，覆盖销售管理、审核合规两类典型场景。具体客户 logo、截图与完整指标在保密承诺下，可在评估会议中单独披露。
           </p>
         </header>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+        <div className="mt-8 rounded-2xl border border-ink-100 bg-white px-5 py-4 text-[13px] leading-relaxed text-ink-700">
+          <span className="font-semibold text-ink-900">服务覆盖行业：</span>
+          智能制造 · 跨境电商 · 法律咨询 · 连锁零售 · 集团差旅 · 财务共享中心 · 央国企内控合规
+        </div>
+
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
           {customerStories.map((story) => (
             <article key={story.title} className="card">
               <span className="eyebrow">{story.industry}</span>
@@ -783,30 +887,90 @@ function RolloutPlan() {
           </p>
         </header>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {rolloutSteps.map((step) => (
-            <div
-              key={step.title}
-              className="rounded-2xl border border-ink-100 bg-white p-6"
-            >
-              <div className="inline-flex size-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
-                <step.icon className="size-5" />
+        <div className="relative mt-16">
+          {/* Energized horizontal timeline track (lg+) */}
+          <div
+            aria-hidden
+            className="timeline-line pointer-events-none absolute left-[8%] right-[8%] top-[58px] hidden h-[2px] rounded-full opacity-80 lg:block"
+          />
+          {/* Vertical track (mobile) */}
+          <div
+            aria-hidden
+            className="timeline-line-v pointer-events-none absolute left-[27px] top-12 bottom-12 hidden w-[2px] rounded-full opacity-80 md:hidden"
+          />
+
+          <div className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {rolloutSteps.map((step, idx) => (
+              <div
+                key={step.title}
+                className="relative rounded-2xl border border-ink-100 bg-white p-6 transition hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(45,91,255,0.4)]"
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="relative inline-flex size-12 items-center justify-center rounded-xl text-white ring-4 ring-white"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet))",
+                      boxShadow:
+                        "0 10px 28px -10px rgba(45,91,255,0.6), inset 0 0 0 1px rgba(255,255,255,0.18)",
+                    }}
+                  >
+                    <step.icon className="size-5" />
+                    {/* Pulse ring */}
+                    <span
+                      aria-hidden
+                      className="absolute -inset-1 rounded-xl opacity-0 transition-opacity group-hover:opacity-100"
+                      style={{
+                        boxShadow:
+                          "0 0 0 2px rgba(86,199,244,0.35), 0 0 24px rgba(45,91,255,0.5)",
+                      }}
+                    />
+                  </div>
+                  <span
+                    className="rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-white"
+                    style={{
+                      background:
+                        "linear-gradient(120deg, var(--color-accent-blue), var(--color-accent-violet))",
+                      boxShadow:
+                        "0 6px 16px -6px rgba(45,91,255,0.6)",
+                    }}
+                  >
+                    W{idx + 1}
+                  </span>
+                </div>
+
+                {/* Timeline node aligned with track (lg+) */}
+                <span
+                  aria-hidden
+                  className="node-dot absolute -top-[6px] left-1/2 hidden -translate-x-1/2 lg:inline-flex"
+                />
+
+                <div className="mt-5 text-[12px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-accent-violet)]">
+                  {step.period}
+                </div>
+                <h3 className="mt-3 text-[18px] font-semibold text-ink-900">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-ink-500">
+                  {step.desc}
+                </p>
+                <div
+                  className="mt-5 rounded-xl px-4 py-3 text-[12px] leading-relaxed text-ink-700"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(86,199,244,0.06), rgba(45,91,255,0.05))",
+                    border: "1px solid rgba(45,91,255,0.12)",
+                  }}
+                >
+                  <span className="font-semibold text-ink-900">交付产物：</span>
+                  {step.output}
+                </div>
+                <div className="mt-3 text-[12px] font-medium text-[color:var(--color-accent-blue)]">
+                  {step.effort}
+                </div>
               </div>
-              <div className="mt-5 text-[12px] font-semibold text-brand-600">
-                {step.period}
-              </div>
-              <h3 className="mt-3 text-[18px] font-semibold text-ink-900">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-ink-500">
-                {step.desc}
-              </p>
-              <div className="mt-5 rounded-xl bg-ink-50 px-4 py-3 text-[12px] leading-relaxed text-ink-700">
-                <span className="font-semibold text-ink-900">交付产物：</span>
-                {step.output}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -852,7 +1016,7 @@ function WhyUs() {
     {
       icon: Gauge,
       title: "懂产品，也懂交付",
-      desc: "标准智能体可快速试点，定制外包能补齐企业流程里的特殊环节。",
+      desc: "标准智能体可快速试点，企业级系统集成能补齐流程里的特殊环节。",
     },
     {
       icon: ShieldCheck,
@@ -903,32 +1067,52 @@ function WhyUs() {
 
 function CTAContact() {
   return (
-    <section id="contact" className="bg-gradient-to-b from-white to-brand-50/40">
-      <div className="container-page grid gap-12 py-24 md:grid-cols-[1fr_1.1fr]">
+    <section id="contact" className="surface-dark relative">
+      <div className="container-page relative z-10 grid gap-12 py-24 md:grid-cols-[1fr_1.1fr] md:py-32">
         <div>
-          <span className="eyebrow">联系我们</span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
-            先判断哪条流程最值得 AI 化
+          <span className="eyebrow-neon">联系我们 · CONTACT</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-[42px]">
+            先判断哪条流程
+            <br />
+            最值得 <span className="text-gradient">AI 化</span>
           </h2>
-          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-500">
-            留下联系方式后，我们会基于您的业务流程、系统现状和团队成熟度，
-            判断更适合从智能体产品、AI 培训、咨询陪跑还是定制外包开始。
+          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/72">
+            留下联系方式后，我们会基于您的业务流程、系统现状和团队成熟度，判断更适合从智能体产品、AI 培训、咨询陪跑还是系统集成开始。
           </p>
 
           <div className="mt-8 grid gap-3">
             {ctaOptions.map((item) => (
               <div
-                key={item}
-                className="rounded-xl border border-ink-100 bg-white px-4 py-3 text-[14px] font-medium text-ink-800"
+                key={item.label}
+                className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-[14px] font-medium text-white/85 backdrop-blur-md transition hover:border-[color:var(--color-accent-cyan)]/40"
               >
-                {item}
+                <span>{item.label}</span>
+                <span
+                  className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
+                    item.tag === "高意向"
+                      ? "text-white"
+                      : "text-[color:var(--color-accent-cyan)] ring-1 ring-[color:var(--color-accent-cyan)]/35 bg-white/[0.02]"
+                  }`}
+                  style={
+                    item.tag === "高意向"
+                      ? {
+                          background:
+                            "linear-gradient(120deg, var(--color-accent-blue), var(--color-accent-violet))",
+                          boxShadow:
+                            "0 6px 16px -6px rgba(45,91,255,0.6)",
+                        }
+                      : undefined
+                  }
+                >
+                  {item.tag}
+                </span>
               </div>
             ))}
           </div>
 
-          <ul className="mt-8 space-y-4 text-[14px] text-ink-700">
+          <ul className="mt-8 space-y-4 text-[14px] text-white/75">
             <Bullet>免费 30 分钟 AI 场景诊断会议</Bullet>
-            <Bullet>提供智能体产品、培训和外包落地路径建议</Bullet>
+            <Bullet>提供智能体产品、培训和系统集成落地路径建议</Bullet>
             <Bullet>支持基于真实样本的 POC 与流程回测</Bullet>
             <Bullet>输出可转发给业务、IT、采购的评估材料</Bullet>
           </ul>
@@ -937,24 +1121,31 @@ function CTAContact() {
             {contactMethods.map((method) => (
               <div
                 key={method.label}
-                className="flex gap-3 rounded-xl border border-ink-100 bg-white px-4 py-4"
+                className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 backdrop-blur-md"
               >
-                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-white">
+                <span
+                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg text-white"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet))",
+                    boxShadow: "0 8px 22px -10px rgba(45,91,255,0.7)",
+                  }}
+                >
                   <method.icon className="size-5" />
                 </span>
                 <div>
-                  <div className="text-[13px] font-semibold text-ink-900">
+                  <div className="text-[13px] font-semibold text-white">
                     {method.label}
                   </div>
                   {method.href ? (
                     <Link
                       href={method.href}
-                      className="mt-1 block break-all text-[14px] leading-relaxed text-ink-600 hover:text-brand-600"
+                      className="mt-1 block break-all text-[14px] leading-relaxed text-white/72 hover:text-[color:var(--color-accent-cyan)]"
                     >
                       {method.value}
                     </Link>
                   ) : (
-                    <p className="mt-1 text-[14px] leading-relaxed text-ink-600">
+                    <p className="mt-1 text-[14px] leading-relaxed text-white/72">
                       {method.value}
                     </p>
                   )}
@@ -964,15 +1155,24 @@ function CTAContact() {
           </div>
         </div>
 
-        <div className="grid gap-5">
+        <div className="relative grid gap-5">
+          {/* Glow halo behind form */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-6 -z-10 rounded-[28px] opacity-60 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(circle at 30% 20%, rgba(86,199,244,0.18), transparent 55%), radial-gradient(circle at 80% 80%, rgba(45,91,255,0.22), transparent 60%)",
+            }}
+          />
           <LeadForm />
           <div className="grid gap-4 sm:grid-cols-2">
             {socialQrcodes.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-ink-100 bg-white p-5 shadow-[0_18px_50px_-36px_rgba(13,38,128,0.45)]"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md glow-soft"
               >
-                <div className="mx-auto aspect-square w-full max-w-[168px] overflow-hidden rounded-xl border border-ink-100 bg-white">
+                <div className="mx-auto aspect-square w-full max-w-[168px] overflow-hidden rounded-xl border border-white/10 bg-white">
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -981,13 +1181,13 @@ function CTAContact() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="mt-5 text-[13px] font-semibold text-brand-600">
+                <div className="mt-5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-accent-cyan)]">
                   {item.label}
                 </div>
-                <h3 className="mt-2 text-[17px] font-semibold text-ink-900">
+                <h3 className="mt-2 text-[17px] font-semibold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-ink-500">
+                <p className="mt-2 text-[14px] leading-relaxed text-white/70">
                   {item.desc}
                 </p>
               </div>
@@ -1002,7 +1202,7 @@ function CTAContact() {
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-3">
-      <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-brand-500" />
+      <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[color:var(--color-accent-cyan)]" />
       <span>{children}</span>
     </li>
   );

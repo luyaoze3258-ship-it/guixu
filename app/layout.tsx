@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     template: "%s · 归序科技 Guixu",
   },
   description:
-    "归序科技提供销售助手、风控管理、智能知识库、观澜智能审核等企业 AI 智能体，以及 AI 培训、咨询陪跑、私有化部署和定制外包交付服务。",
+    "归序科技提供销售助手、风控管理、智能知识库、观澜智能审核等企业 AI 智能体，以及 AI 培训、咨询陪跑、私有化部署与企业级解决方案交付服务。",
   keywords: [
     "归序科技",
     "AI 智能体",
     "企业 AI 落地",
     "AI 培训",
-    "AI 外包",
+    "AI 系统集成",
     "智能知识库",
     "销售助手智能体",
     "销售管理智能体",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "归序科技 · 企业 AI 智能体与落地服务",
     description:
-      "从标准智能体、AI 培训到定制外包交付，帮助企业把高频业务流程 AI 化。",
+      "从标准智能体、AI 培训到企业级解决方案交付，帮助企业把高频业务流程 AI 化。",
     url: "https://www.guixucloud.com",
     siteName: "归序科技 Guixu",
     locale: "zh_CN",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "归序科技 · 企业 AI 智能体与落地服务",
     description:
-      "从标准智能体、AI 培训到定制外包交付，帮助企业把高频业务流程 AI 化。",
+      "从标准智能体、AI 培训到企业级解决方案交付，帮助企业把高频业务流程 AI 化。",
   },
   robots: {
     index: true,

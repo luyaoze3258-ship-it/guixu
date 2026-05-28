@@ -20,7 +20,7 @@ const cols: Array<{
     links: [
       { href: "/#services", label: "AI 培训课程" },
       { href: "/#services", label: "咨询陪跑服务" },
-      { href: "/#services", label: "AI 外包与定制交付" },
+      { href: "/#services", label: "企业级解决方案交付" },
       { href: "/#contact", label: "申请方案评估" },
     ],
   },

@@ -40,7 +40,7 @@ export function SiteNav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <Link href="/#agents" className="btn-ghost hidden md:inline-flex">
             智能体矩阵
           </Link>
@@ -50,7 +50,7 @@ export function SiteNav() {
           >
             预约
           </Link>
-          <Link href="/#contact" className="btn-primary hidden sm:inline-flex">
+          <Link href="/#contact" className="btn-neon hidden sm:inline-flex">
             预约评估
           </Link>
           <button
