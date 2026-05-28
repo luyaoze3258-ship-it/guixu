@@ -477,7 +477,7 @@ function CTA() {
             立即申请试用观澜智能审核，体验 AI 带来的流程变革。我们将为您提供 1 小时一对一诊断、行业落地案例与基于真实样本的 POC 试用。
           </p>
         </div>
-        <LeadForm />
+        <LeadForm variant="light" />
       </div>
     </section>
   );
